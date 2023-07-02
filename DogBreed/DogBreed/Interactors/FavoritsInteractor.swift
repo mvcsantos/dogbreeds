@@ -16,7 +16,7 @@ protocol FavoritesInteractorType {
 
     /// Marks as image as favorite
     /// - Parameter imageURL: image to be marked as favorite
-    func toggleFavorite(imageURL: URL)
+    func toggleFavorite(imageURL: URL) async
 
     /// Checks if an image was marked as favorite
     /// - Parameter imageURL: image to be checked
@@ -40,7 +40,7 @@ extension FavoritesInteractor: FavoritesInteractorType {
         content
     }
 
-    func toggleFavorite(imageURL: URL) {
+    func toggleFavorite(imageURL: URL) async {
         if content.contains(imageURL) {
             content.removeAll { $0 == imageURL }
             return

@@ -10,7 +10,7 @@ import LWNetworking
 
 protocol ErrorHandling {
 
-    var viewController: BrowserViewController? { get set }
+    var viewController: BrowserViewControllerType? { get set }
 
     func handle(error: Error)
 }

@@ -142,7 +142,7 @@ final class BreedListCell: UICollectionViewCell {
 
 extension BreedListCell {
 
-    struct ViewModel: Hashable {
+    struct ViewModel: Hashable, Equatable {
 
         let id: Int
         let title: String?

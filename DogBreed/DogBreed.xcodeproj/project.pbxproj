@@ -21,6 +21,10 @@
 		F65CC6DE290F07D200DDD0DD /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65CC6DD290F07D200DDD0DD /* Assets.swift */; };
 		F65CC7F529104B3400DDD0DD /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65CC7F429104B3400DDD0DD /* ErrorHandling.swift */; };
 		F65CC7F7291061DA00DDD0DD /* UICollectionView+EmptyMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65CC7F6291061DA00DDD0DD /* UICollectionView+EmptyMessage.swift */; };
+		F67BEDF829198BF000F5A753 /* Cuckoo in Frameworks */ = {isa = PBXBuildFile; productRef = F67BEDF729198BF000F5A753 /* Cuckoo */; };
+		F67BEDFC291990F500F5A753 /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67BEDFB291990F500F5A753 /* GeneratedMocks.swift */; };
+		F67BEDFE2919955D00F5A753 /* BreedListingPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67BEDFD2919955D00F5A753 /* BreedListingPresenterTests.swift */; };
+		F67BEE0029199CE000F5A753 /* BrowserViewControllerDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67BEDFF29199CE000F5A753 /* BrowserViewControllerDefinitions.swift */; };
 		F6DF10C5290661C300826373 /* BreedsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DF10C4290661C300826373 /* BreedsInteractor.swift */; };
 		F6DF10CD2906F9E000826373 /* DogApiEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DF10CC2906F9E000826373 /* DogApiEndpoints.swift */; };
 		F6DF10D82906FBA600826373 /* LWNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = F6DF10D72906FBA600826373 /* LWNetworking */; };
@@ -28,7 +32,6 @@
 		F6F6389829054D80003509BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F6389729054D80003509BC /* SceneDelegate.swift */; };
 		F6F6389F29054D81003509BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6F6389E29054D81003509BC /* Assets.xcassets */; };
 		F6F638A229054D81003509BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6F638A029054D81003509BC /* LaunchScreen.storyboard */; };
-		F6F638AD29054D81003509BC /* DogBreedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F638AC29054D81003509BC /* DogBreedTests.swift */; };
 		F6F638B729054D81003509BC /* DogBreedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F638B629054D81003509BC /* DogBreedUITests.swift */; };
 		F6F638B929054D81003509BC /* DogBreedUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F638B829054D81003509BC /* DogBreedUITestsLaunchTests.swift */; };
 		F6F638CB29055FAC003509BC /* BreedListingDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F638CA29055FAC003509BC /* BreedListingDefinitions.swift */; };
@@ -80,6 +83,9 @@
 		F65CC6DD290F07D200DDD0DD /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		F65CC7F429104B3400DDD0DD /* ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		F65CC7F6291061DA00DDD0DD /* UICollectionView+EmptyMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+EmptyMessage.swift"; sourceTree = "<group>"; };
+		F67BEDFB291990F500F5A753 /* GeneratedMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedMocks.swift; sourceTree = "<group>"; };
+		F67BEDFD2919955D00F5A753 /* BreedListingPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedListingPresenterTests.swift; sourceTree = "<group>"; };
+		F67BEDFF29199CE000F5A753 /* BrowserViewControllerDefinitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewControllerDefinitions.swift; sourceTree = "<group>"; };
 		F6DF10C4290661C300826373 /* BreedsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsInteractor.swift; sourceTree = "<group>"; };
 		F6DF10CC2906F9E000826373 /* DogApiEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogApiEndpoints.swift; sourceTree = "<group>"; };
 		F6DF10D32906FAEF00826373 /* LWNetworking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = LWNetworking; path = ../LWNetworking; sourceTree = "<group>"; };
@@ -90,7 +96,6 @@
 		F6F638A129054D81003509BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F6F638A329054D81003509BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6F638A829054D81003509BC /* DogBreedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogBreedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F6F638AC29054D81003509BC /* DogBreedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedTests.swift; sourceTree = "<group>"; };
 		F6F638B229054D81003509BC /* DogBreedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogBreedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6F638B629054D81003509BC /* DogBreedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedUITests.swift; sourceTree = "<group>"; };
 		F6F638B829054D81003509BC /* DogBreedUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -124,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F67BEDF829198BF000F5A753 /* Cuckoo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +175,7 @@
 			children = (
 				F6F638CE29055FDB003509BC /* Subviews */,
 				F6F638CF29055FF1003509BC /* BrowserViewController.swift */,
+				F67BEDFF29199CE000F5A753 /* BrowserViewControllerDefinitions.swift */,
 			);
 			path = Browser;
 			sourceTree = "<group>";
@@ -180,6 +187,14 @@
 				F65CC6C4290EA14200DDD0DD /* DogApiInteractable.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		F67BEDFA29198C6500F5A753 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				F67BEDFB291990F500F5A753 /* GeneratedMocks.swift */,
+			);
+			path = Generated;
 			sourceTree = "<group>";
 		};
 		F6DF10C32906613000826373 /* Interactors */ = {
@@ -250,7 +265,8 @@
 		F6F638AB29054D81003509BC /* DogBreedTests */ = {
 			isa = PBXGroup;
 			children = (
-				F6F638AC29054D81003509BC /* DogBreedTests.swift */,
+				F67BEDFA29198C6500F5A753 /* Generated */,
+				F67BEDFD2919955D00F5A753 /* BreedListingPresenterTests.swift */,
 			);
 			path = DogBreedTests;
 			sourceTree = "<group>";
@@ -374,6 +390,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F6F638BF29054D81003509BC /* Build configuration list for PBXNativeTarget "DogBreedTests" */;
 			buildPhases = (
+				F67BEDF929198C0E00F5A753 /* Cuckoo */,
 				F6F638A429054D81003509BC /* Sources */,
 				F6F638A529054D81003509BC /* Frameworks */,
 				F6F638A629054D81003509BC /* Resources */,
@@ -384,6 +401,9 @@
 				F6F638AA29054D81003509BC /* PBXTargetDependency */,
 			);
 			name = DogBreedTests;
+			packageProductDependencies = (
+				F67BEDF729198BF000F5A753 /* Cuckoo */,
+			);
 			productName = DogBreedTests;
 			productReference = F6F638A829054D81003509BC /* DogBreedTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -440,6 +460,7 @@
 			mainGroup = F6F6388929054D80003509BC;
 			packageReferences = (
 				F6F638E029058DEE003509BC /* XCRemoteSwiftPackageReference "Dip" */,
+				F67BEDF629198BF000F5A753 /* XCRemoteSwiftPackageReference "Cuckoo" */,
 			);
 			productRefGroup = F6F6389329054D80003509BC /* Products */;
 			projectDirPath = "";
@@ -478,6 +499,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		F67BEDF929198C0E00F5A753 /* Cuckoo */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Cuckoo;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ $ACTION == \"indexbuild\" ]; then\n  echo \"Not running Cuckoo generator during indexing.\"\n  exit 0 \nfi\n\n# Skip for preview builds\nif [ \"${ENABLE_PREVIEWS}\" = \"YES\" ]; then\n  echo \"Not running Cuckoo generator during preview builds.\"\n  exit 0\nfi\n\n# Define output file. Change \"${PROJECT_DIR}/${PROJECT_NAME}Tests\" to your test's root source folder, if it's not the default name.\nOUTPUT_FILE=\"${PROJECT_DIR}/${PROJECT_NAME}Tests/Generated/GeneratedMocks.swift\"\necho \"Generated Mocks File = ${OUTPUT_FILE}\"\n\n# Define input directory. Change \"${PROJECT_DIR}/${PROJECT_NAME}\" to your project's root source folder, if it's not the default name.\n#INPUT_DIR=\"${PROJECT_DIR}/${PROJECT_NAME}\"\nINPUT_DIR=\"${PROJECT_DIR}/${PROJECT_NAME}\"\necho \"Mocks Input Directory = ${INPUT_DIR}\"\n\n# Generate mock files, include as many input files as you'd like to create mocks for.\n\"${PROJECT_DIR}/run\" --download --clean generate --testable \"${PROJECT_NAME}\" \\\n--output \"${OUTPUT_FILE}\" \\\n\"${INPUT_DIR}/Interactors/BreedsInteractor.swift\" \\\n\"${INPUT_DIR}/Screens/Listing/BreedListingDefinitions.swift\" \\\n\"${INPUT_DIR}/Common/Browser/BrowserViewControllerDefinitions.swift\"\n\n# ... and so forth, the last line should never end with a backslash\n\n# After running once, locate `GeneratedMocks.swift` and drag it into your Xcode test target group.\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F6F6388E29054D80003509BC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -514,6 +556,7 @@
 				F65CC6D0290ED9C400DDD0DD /* DetailsDefinitions.swift in Sources */,
 				F6F6389829054D80003509BC /* SceneDelegate.swift in Sources */,
 				F6F638DF29056A43003509BC /* BaseResponse.swift in Sources */,
+				F67BEE0029199CE000F5A753 /* BrowserViewControllerDefinitions.swift in Sources */,
 				F65CC6C3290E9F5300DDD0DD /* BreedImageInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -522,7 +565,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6F638AD29054D81003509BC /* DogBreedTests.swift in Sources */,
+				F67BEDFC291990F500F5A753 /* GeneratedMocks.swift in Sources */,
+				F67BEDFE2919955D00F5A753 /* BreedListingPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -854,6 +898,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F67BEDF629198BF000F5A753 /* XCRemoteSwiftPackageReference "Cuckoo" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Brightify/Cuckoo.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		F6F638E029058DEE003509BC /* XCRemoteSwiftPackageReference "Dip" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AliSoftware/Dip";
@@ -865,6 +917,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F67BEDF729198BF000F5A753 /* Cuckoo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F67BEDF629198BF000F5A753 /* XCRemoteSwiftPackageReference "Cuckoo" */;
+			productName = Cuckoo;
+		};
 		F6DF10D42906FAF900826373 /* LWNetworking */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = LWNetworking;

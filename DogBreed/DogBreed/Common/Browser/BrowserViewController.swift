@@ -7,19 +7,6 @@
 
 import UIKit
 
-protocol BrowserViewControllerDelegate {
-
-    func viewWillAppear()
-
-    func pullToRefresh()
-
-    func wantsToNavigateToDetails(model: BreedListCell.ViewModel)
-
-    func didTapOnCellButton(model: BreedListCell.ViewModel, buttonType: BreedListCell.ViewModel.ButtonType)
-
-    func search(text: String)
-}
-
 final class BrowserViewController: UIViewController {
 
     private typealias CellRegistration = UICollectionView.CellRegistration<BreedListCell, BreedListCell.ViewModel>
@@ -38,7 +25,9 @@ final class BrowserViewController: UIViewController {
             $0.imageLoader = self?.breedImageInteractor
             $0.populate(data: $2)
             $0.buttonAction = { model, buttonType in
-                self?.delegate?.didTapOnCellButton(model: model, buttonType: buttonType)
+                Task {
+                    await self?.delegate?.didTapOnCellButton(model: model, buttonType: buttonType)
+                }
             }
         }
         return DataSource(
@@ -81,7 +70,9 @@ final class BrowserViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        delegate?.viewWillAppear()
+        Task { [weak self] in
+            await self?.delegate?.viewWillAppear()
+        }
     }
 
     override func loadView() {
@@ -112,25 +103,25 @@ extension BrowserViewController {
 
 // MARK: - Public methods
 
-extension BrowserViewController {
+extension BrowserViewController: BrowserViewControllerType {
 
-    @MainActor
     func populate(data: [BreedListCell.ViewModel]) {
+        DispatchQueue.main.async { [weak self] in
+            if data.isEmpty {
+                self?.contentView
+                    .collectionView
+                    .setEmptyMessage("No favorite breeds?")
+            } else {
+                self?.contentView
+                    .collectionView
+                    .restore()
+            }
 
-        if data.isEmpty {
-            contentView
-                .collectionView
-                .setEmptyMessage("No favorite breeds?")
-        } else {
-            contentView
-                .collectionView
-                .restore()
+            var snapshot = Snapshot()
+            snapshot.appendSections([Section.listing])
+            snapshot.appendItems(data)
+            self?.dataSource.apply(snapshot, animatingDifferences: true)
         }
-
-        var snapshot = Snapshot()
-        snapshot.appendSections([Section.listing])
-        snapshot.appendItems(data)
-        dataSource.apply(snapshot, animatingDifferences: true)
     }
 
     func error(title: String, message: String) {

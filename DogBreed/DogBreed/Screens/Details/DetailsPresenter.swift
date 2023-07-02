@@ -9,7 +9,7 @@ import UIKit
 
 class DetailsPresenter: ErrorHandling {
 
-    weak var viewController: BrowserViewController?
+    weak var viewController: BrowserViewControllerType?
 
     private let breedsInteractor: BreedsInteractorType
     private let breedsImageInteractor: BreedImageInteractorType
@@ -40,10 +40,7 @@ class DetailsPresenter: ErrorHandling {
                 )
             }
 
-        DispatchQueue.main.async { [weak self] in
-
-            self?.viewController?.populate(data: viewModels)
-        }
+        viewController?.populate(data: viewModels)
     }
 
 }
@@ -52,23 +49,21 @@ extension DetailsPresenter: DetailsPresenterType {}
 
 extension DetailsPresenter: BrowserViewControllerDelegate {
 
-    func viewWillAppear() {
-
-        Task { [weak self, interactor = self.breedsImageInteractor, breedName = self.selectedBreed] in
-            do {
-                let imagesURL = try await interactor.imagesByBreed(breed: breedName)
-                self?.present(data: imagesURL)
-            } catch {
-                handle(error: error)
-            }
+    func viewWillAppear() async {
+        do {
+            let imagesURL = try await breedsImageInteractor.imagesByBreed(breed: selectedBreed)
+            present(data: imagesURL)
+        } catch {
+            handle(error: error)
         }
     }
 
-    func pullToRefresh() {}
-
     func wantsToNavigateToDetails(model: BreedListCell.ViewModel) {}
 
-    func didTapOnCellButton(model: BreedListCell.ViewModel, buttonType: BreedListCell.ViewModel.ButtonType) {
+    func didTapOnCellButton(
+        model: BreedListCell.ViewModel,
+        buttonType: BreedListCell.ViewModel.ButtonType
+    ) async {
 
         guard case .like = buttonType else {
             return
@@ -77,8 +72,8 @@ extension DetailsPresenter: BrowserViewControllerDelegate {
         guard let imageURL = model.imageUrl else {
             return
         }
-        favoritesInteractor.toggleFavorite(imageURL: imageURL)
-        viewWillAppear()
+        await favoritesInteractor.toggleFavorite(imageURL: imageURL)
+        await viewWillAppear()
     }
 
     func search(text: String) {

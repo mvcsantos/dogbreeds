@@ -8,7 +8,6 @@
 import Foundation
 import LWNetworking
 
-
 /// Proves images for all breeds
 protocol BreedImageInteractorType: AnyObject {
 

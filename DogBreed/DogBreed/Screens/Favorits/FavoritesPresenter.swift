@@ -44,19 +44,15 @@ extension FavoritesPresenter: FavoritesPresenterType {}
 
 extension FavoritesPresenter: BrowserViewControllerDelegate {
 
-    func viewWillAppear() {
+    func viewWillAppear() async {
 
-        Task { [weak self, interactor = self.favoritesInteractor] in
-            let imagesURL = await interactor.retrieveAllFavorites()
-            self?.present(data: imagesURL)
-        }
+        let imagesURL = await favoritesInteractor.retrieveAllFavorites()
+        present(data: imagesURL)
     }
-
-    func pullToRefresh() {}
 
     func wantsToNavigateToDetails(model: BreedListCell.ViewModel) {}
 
-    func didTapOnCellButton(model: BreedListCell.ViewModel, buttonType: BreedListCell.ViewModel.ButtonType) {
+    func didTapOnCellButton(model: BreedListCell.ViewModel, buttonType: BreedListCell.ViewModel.ButtonType) async {
 
         guard case .remove = buttonType else {
             return
@@ -65,8 +61,8 @@ extension FavoritesPresenter: BrowserViewControllerDelegate {
         guard let imageURL = model.imageUrl else {
             return
         }
-        favoritesInteractor.toggleFavorite(imageURL: imageURL)
-        viewWillAppear()
+        await favoritesInteractor.toggleFavorite(imageURL: imageURL)
+        await viewWillAppear()
     }
 
     func search(text: String) {

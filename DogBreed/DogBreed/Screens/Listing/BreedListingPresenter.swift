@@ -11,7 +11,7 @@ class BreedListingPresenter: ErrorHandling {
 
     let interactor: BreedsInteractorType
     let router: BreedListingRouterType
-    weak var viewController: BrowserViewController?
+    weak var viewController: BrowserViewControllerType?
 
     init(interactor: BreedsInteractorType, router: BreedListingRouterType) {
 
@@ -31,10 +31,7 @@ class BreedListingPresenter: ErrorHandling {
                 )
             }
 
-        DispatchQueue.main.async { [weak self] in
-
-            self?.viewController?.populate(data: viewModels)
-        }
+        viewController?.populate(data: viewModels)
     }
 }
 
@@ -42,23 +39,14 @@ extension BreedListingPresenter: BreedListingPresenterType {}
 
 extension BreedListingPresenter: BrowserViewControllerDelegate {
 
-
-    func viewWillAppear() {
-
-        Task { [weak self, interactor = self.interactor] in
-            do {
-                let allBreeds = try await interactor
-                    .listAllBreeds()
-                self?.present(data: allBreeds)
-            } catch {
-                self?.handle(error: error)
-            }
+    func viewWillAppear() async {
+        do {
+            let allBreeds = try await interactor
+                .listAllBreeds()
+            present(data: allBreeds)
+        } catch {
+            handle(error: error)
         }
-    }
-
-    func pullToRefresh() {
-
-        viewWillAppear()
     }
 
     func wantsToNavigateToDetails(model: BreedListCell.ViewModel) {
@@ -68,7 +56,7 @@ extension BreedListingPresenter: BrowserViewControllerDelegate {
         router.navigateToDetails(breedName: breedName)
     }
 
-    func didTapOnCellButton(model: BreedListCell.ViewModel, buttonType: BreedListCell.ViewModel.ButtonType) {}
+    func didTapOnCellButton(model: BreedListCell.ViewModel, buttonType: BreedListCell.ViewModel.ButtonType) async {}
 
     func search(text: String) {}
 }
