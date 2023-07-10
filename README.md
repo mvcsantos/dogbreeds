@@ -35,7 +35,7 @@ This repository showcases a project called Dog Breed App, which demonstrates my 
 ## Third-Party Dependencies
 
 - DIP: A DI (Dependency Injection) container used to manage dependencies.
-- Cuckoo: A mocking framework for creating test doubles.
+- Cuckoo: A mocking framework for creating test data.
 
 ## Installation
 
